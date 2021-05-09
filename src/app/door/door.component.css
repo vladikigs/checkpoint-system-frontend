@@ -1,0 +1,11 @@
+.form-group {
+  margin-top: 20px;
+}
+
+label {
+  margin-right: 10px;
+}
+
+.container {
+  display: flex;
+}

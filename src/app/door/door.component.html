@@ -1,0 +1,38 @@
+<div class="container h-100">
+  <div class="row h-100 w-100 justify-content-center align-items-center">
+    <form class="col-12 text-center"  (ngSubmit)="onSubmit()">
+      <!--- Room Id Block --->
+      <div class="form-group">
+        <label for="inputRoomId">Room id: </label>
+        <input type="number"
+               [(ngModel)] = "door.roomId"
+               name="roomId"
+               id="inputRoomId"
+               placeholder="Room id">
+      </div>
+      <!--- Key Id Block --->
+      <div class="form-group">
+        <label for="inputKeyId" >Key id: </label>
+        <input type="number"
+               [(ngModel)] = "door.keyId"
+               name="keyId"
+               id="inputKeyId"
+               placeholder="Key id">
+      </div>
+      <!--- Entrance Block --->
+      <div class="form-group">
+        <label for="inputEntrance">Entrance: </label>
+        <input type="checkbox"
+               [(ngModel)] = "door.entrance"
+               (change)="entranceChange()"
+               name="entrance"
+               id="inputEntrance">
+      </div>
+      {{ doorService.fetchStatus }}
+      <!--- Buttons Block --->
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">{{ submitValueBtn }}</button>
+      </div>
+    </form>
+  </div>
+</div>
