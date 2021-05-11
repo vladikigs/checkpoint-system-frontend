@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Door} from './door';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class DoorService {
   constructor(private http: HttpClient) { }
 
   sendFormData(door: Door): void {
-    this.http.get<any>(`http://localhost:8080/check?roomId=${door.roomId}&entrance=${door.entrance}&keyId=${door.keyId}`).subscribe({
+    this.http.get<any>(`http://${environment.apiUrl}/check?roomId=${door.roomId}&entrance=${door.entrance}&keyId=${door.keyId}`).subscribe({
       next: data => {
         if (door.entrance && data) {
           this.fetchStatus = 'User success enter in room ' + door.roomId;
