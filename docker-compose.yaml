@@ -1,0 +1,10 @@
+version: '3.0'
+
+services:
+
+  nginx:
+    image: nginx
+    ports:
+      - 4200:80
+    volumes:
+      - ./dist/checkpoint-system-frontend:/usr/share/nginx/html
